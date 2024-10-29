@@ -1,0 +1,99 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2yvrwl8f8tqm"]
+
+[ext_resource type="Script" path="res://Scenes/ScrollContainer.gd" id="1_ah16s"]
+[ext_resource type="FontFile" uid="uid://c882sooueipvc" path="res://Assets/Font/disket_mono_50.tres" id="2_or4tw"]
+[ext_resource type="Script" path="res://Scripts/Input.gd" id="3_8ytug"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ebp1"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75yn8"]
+bg_color = Color(0.0941176, 0.054902, 0.0156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wksy5"]
+bg_color = Color(0.0941176, 0.054902, 0.0156863, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqkcn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1wd5p"]
+
+[node name="BackgroundFishing" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ebp1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBucks" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextSide" type="Control" parent="MarginContainer/VBucks"]
+custom_minimum_size = Vector2(1220, 1080)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="GameInfo" type="PanelContainer" parent="MarginContainer/VBucks/TextSide"]
+layout_mode = 2
+offset_top = 613.0
+offset_right = 1880.0
+offset_bottom = 899.0
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_75yn8")
+
+[node name="Scroll" type="ScrollContainer" parent="MarginContainer/VBucks/TextSide/GameInfo"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("1_ah16s")
+
+[node name="HistoryRows" type="VBoxContainer" parent="MarginContainer/VBucks/TextSide/GameInfo/Scroll"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="InputArea" type="PanelContainer" parent="MarginContainer/VBucks/TextSide"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+offset_top = 1120.0
+offset_right = 1880.0
+offset_bottom = 1240.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wksy5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBucks/TextSide/InputArea"]
+layout_mode = 2
+
+[node name="Caret" type="Label" parent="MarginContainer/VBucks/TextSide/InputArea/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.860127, 0.582351, 0.276969, 1)
+theme_override_fonts/font = ExtResource("2_or4tw")
+theme_override_font_sizes/font_size = 50
+text = " > "
+
+[node name="Input" type="LineEdit" parent="MarginContainer/VBucks/TextSide/InputArea/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.858824, 0.580392, 0.278431, 1)
+theme_override_colors/font_outline_color = Color(0.582809, 0.240543, 0.924845, 1)
+theme_override_fonts/font = ExtResource("2_or4tw")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vqkcn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1wd5p")
+max_length = 28
+caret_blink_interval = 0.1
+script = ExtResource("3_8ytug")
+
+[node name="PictureSide" type="Control" parent="MarginContainer/VBucks"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+
+[connection signal="text_submitted" from="MarginContainer/VBucks/TextSide/InputArea/HBoxContainer/Input" to="MarginContainer/VBucks/TextSide/InputArea/HBoxContainer/Input" method="_on_text_submitted"]

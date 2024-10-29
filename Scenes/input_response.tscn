@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://nqg13ims1qbq"]
+
+[ext_resource type="Script" path="res://Scenes/input_response.gd" id="1_j16i8"]
+[ext_resource type="PackedScene" uid="uid://dndd2yo6u22pe" path="res://Scenes/input_history.tscn" id="2_7fles"]
+[ext_resource type="PackedScene" uid="uid://dgtuufcm76op1" path="res://Scenes/response.tscn" id="3_j152i"]
+
+[node name="InputResponse" type="VBoxContainer"]
+offset_left = 24.0
+offset_right = 1024.0
+offset_bottom = 238.0
+theme_override_constants/separation = 0
+script = ExtResource("1_j16i8")
+
+[node name="InputHistory" parent="." instance=ExtResource("2_7fles")]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="Response" parent="." instance=ExtResource("3_j152i")]
+layout_mode = 2
+text = "Yee, jafsjafjkbsdfjajsfkjsbdfkbskfjdbskfafdasfsdada"

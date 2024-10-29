@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dndd2yo6u22pe"]
+
+[ext_resource type="FontFile" uid="uid://c882sooueipvc" path="res://Assets/Font/disket_mono_50.tres" id="1_rrjeh"]
+
+[node name="InputHistory" type="Label"]
+theme_override_colors/font_color = Color(0.561928, 0.432152, 0.268144, 1)
+theme_override_fonts/font = ExtResource("1_rrjeh")
+theme_override_font_sizes/font_size = 50
+text = " > Bruh?
+"

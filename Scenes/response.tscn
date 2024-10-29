@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgtuufcm76op1"]
+
+[ext_resource type="FontFile" uid="uid://c882sooueipvc" path="res://Assets/Font/disket_mono_50.tres" id="1_tnhdl"]
+
+[node name="Response" type="Label"]
+custom_minimum_size = Vector2(1000, 0)
+theme_override_colors/font_color = Color(0.980049, 0.698127, 0.355762, 1)
+theme_override_fonts/font = ExtResource("1_tnhdl")
+theme_override_font_sizes/font_size = 50
+text = "Yee"
+autowrap_mode = 3
